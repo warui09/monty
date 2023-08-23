@@ -11,7 +11,7 @@
 
 int main(int ac, char **av)
 {
-	stack_t stack;
+	FILE *file_to_read;
 
 	if (ac != 2)
 	{
@@ -19,8 +19,15 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
-	if (!stack)
-		printf("haha\n");
+	file_to_read = fopen("av[1]", "r");
+	if (!file_to_read)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
+		exit(EXIT_FAILURE);
+	}
+
+
+	printf("%s\n", av[1]);
 
 	return (EXIT_SUCCESS);
 }
