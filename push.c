@@ -41,7 +41,7 @@ void push_queue(stack_t **stack, unsigned int param){
 
     new_node = malloc(sizeof(stack_t));
     if (new_node == NULL){
-        handle_error(ERR_BAD_MAL, NULL, 0, NULL);
+        handle_error(ERR_BAD_MALL, NULL, 0, NULL);
     }
         new_node -> n = param;
         if (*stack){
