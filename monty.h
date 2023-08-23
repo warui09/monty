@@ -31,4 +31,23 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
+int check_digits(char *c);
+void frees_stack(void);
+void check_args_num(int argn);
+FILE *open_file(char *filename);
+void check_access_rights(char *filename);
+int handle_execution(char *op_code, char *op_param, unsigned int line, int i);
+void handle_error(int errno, char *op_code, unsigned int line, char *buff);
+void push(stack_t, **stack, unsigned int param);
+void push_queue(stack_t **stack, unsigned int param);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void division(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+
+
 #endif /* MONTY_H */
