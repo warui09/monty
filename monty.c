@@ -11,23 +11,23 @@
 
 int main(int ac, char **av)
 {
-	FILE *file_to_read;
-
+	FILE *fp;
+	
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
-	file_to_read = fopen("av[1]", "r");
-	if (!file_to_read)
+	
+	fp = fopen(av[1], "r");
+	if (!fp)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-
-
-	printf("%s\n", av[1]);
-
+	
+	interpret_file(fp);
+	fclose(fp);
+	
 	return (EXIT_SUCCESS);
 }

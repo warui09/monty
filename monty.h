@@ -13,6 +13,7 @@
 #define ERR_BAD_MALL
 #define ERR_INVLD_PARM
 
+#define MAX_LINE_LENGTH 1024
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -65,5 +66,8 @@ void mul(stack_t **stack, unsigned int line_number);
 void divide(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 
+/*------------prototypes------------*/
+void interpret_file(FILE *fp);
+void parse_line(char *line);
 
 #endif /* MONTY_H */
