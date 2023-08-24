@@ -14,13 +14,13 @@ void divide(stack_t **stack, unsigned int line_number){
 	length = count_stack(*stack);
 
 	if (length < 2)
-	fprintf(stderr, "L%d: can't div, stack too short!\n");
+	fprintf(stderr, "L%u: can't div, stack too short!\n");
     exit(EXIT_FAILURE);
 
 	a = temp->n;
 
 	if (a == 0)
-	fprintf(stderr, "L%d: Division by zero\n");
+	fprintf(stderr, "L%u: Division by zero\n");
     exit(EXIT_FAILURE);
 
 	b = temp -> next -> n;
