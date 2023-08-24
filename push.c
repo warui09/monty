@@ -8,13 +8,16 @@
  * Return - Nothing
 */
 
-void push(stack_t **stack, unsigned int line_number){
+void push(stack_t **stack, unsigned int param){
     stack_t *new_node = NULL;
 
     new_node = malloc(sizeof(stack_t));
-    if (new_node == NULL){
-        handle_error(ERR_BAD_MALL, NULL, 0, NULL);
-    }
+    if (new_node == NULL)
+    fprintf(stderr, "L%d: push integer\n");
+    exit(EXIT_FAILURE);
+
+
+
     new_node -> n = param;
     if (*stack){
         new_node -> next = *stack;
@@ -40,9 +43,11 @@ void push_queue(stack_t **stack, unsigned int param){
     stack_t *current = NULL, *new_node = NULL;
 
     new_node = malloc(sizeof(stack_t));
-    if (new_node == NULL){
-        handle_error(ERR_BAD_MALL, NULL, 0, NULL);
-    }
+    if (new_node == NULL)
+    fprintf(stderr, "L%d: push integer\n");
+    exit(EXIT_FAILURE);
+
+
         new_node -> n = param;
         if (*stack){
             current = *stack;
