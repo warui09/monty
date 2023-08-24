@@ -8,12 +8,6 @@
 #include <string.h>
 #include <unistd.h>
 
-/*Handling Errors*/
-#define ERR_BAD_INST
-#define ERR_BAD_MALL
-#define ERR_INVLD_PARM
-
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
