@@ -1,0 +1,39 @@
+#include "monty.h"
+
+stack_t *stack = NULL;
+void push(stack_t **stack __attribute__((unused)), unsigned int line_number) {
+    printf("push ");
+    printf("%d\n", line_number);
+}
+
+void pall(stack_t **stack __attribute__((unused)), unsigned int line_number) {
+    printf("pall ");
+    printf("%d\n", line_number);
+}
+
+instruction_t instructions[] = {
+    {"push", push},
+    {"pall", pall},
+    {NULL, NULL}
+};
+
+int main(int ac, char **av) {
+    FILE *fp;
+
+    if (ac != 2) {
+        fprintf(stderr, "USAGE: monty file\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fp = fopen(av[1], "r");
+    if (!fp) {
+        fprintf(stderr, "Error: Can't open file %s\n", av[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    interpret_file(fp);
+    fclose(fp);
+
+    return (EXIT_SUCCESS);
+}
+

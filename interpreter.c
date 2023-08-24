@@ -1,23 +1,27 @@
 #include "monty.h"
 
-void interpret_file(FILE *fp)
-{
-    char line[MAX_LINE_LENGTH];
+void interpret_file(FILE *fp) {
     char opcode[MAX_LINE_LENGTH];
+    char line[MAX_LINE_LENGTH];
     int line_number = 0;
-    void (*opcode_func)(stack_t **, unsigned int);
+    int i = 0;
 
-    while (fgets(line, sizeof(line), fp))
-    {
+    while (fgets(line, sizeof(line), fp)) {
         line_number++;
+        sscanf(line, "%s", opcode);
         parse_line(line);
 
-        sscanf(line, "%s", opcode);
+        i = 0;
 
-        opcode_func = get_opcode_func(opcode);
-        if (opcode_func)
-            opcode_func(NULL, line_number);
-        else
+        while (instructions[i].opcode) {
+            if (strcmp(opcode, instructions[i].opcode) == 0) {
+                instructions[i].f(NULL, line_number);
+                break;
+            }
+            i++;
+        }
+        if (!instructions[i].opcode)
             fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
     }
 }
+
