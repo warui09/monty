@@ -8,12 +8,18 @@
  * Return: Nothing
 */
 void swap(stack_t **stack, unsigned int line_number) {
-    if (*stack == NULL || (*stack)->next == NULL) {
-        fprintf(stderr, "L%d: Failed to swap a shot stack!\n", line_number);
+    	unsigned int length = 0, temp = 0;
+
+	length = count_stack(*stack);
+
+	if (length < 2)
+		fprintf(stderr, "L%d: Fail to swap!\n", line_number);
         exit(EXIT_FAILURE);
-    }
-    
-    int temp_value = (*stack)-> n;
-    (*stack) -> n = (*stack)-> next-> n;
-    (*stack) -> next -> n = temp_value;
+
+	if (*stack)
+	{
+		temp = (*stack) -> n;
+		(*stack) -> n = (*stack) -> next -> n;
+		(*stack) -> next -> n = temp;
+	}
 }
