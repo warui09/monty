@@ -1,33 +1,36 @@
 #include "monty.h"
 
 /**
- * main - entry point for the app
- * @ac: argument count
- * @av: argument vector
+ * main - main function
+ * @argc: argument count
+ * @argv: argument vector
  *
  * Return: Always 0
  *
- */
+*/
 
-int main(int ac, char **av)
+int main(int argc, char *argv[])
 {
-	FILE *fp;
-	
-	if (ac != 2)
+	FILE *file;
+	int result;
+
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
-	
-	fp = fopen(av[1], "r");
-	if (!fp)
+
+	file = fopen(argv[1], "r");
+	if (!file)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		return (EXIT_FAILURE);
 	}
-	
-	interpret_file(fp);
-	fclose(fp);
-	
-	return (EXIT_SUCCESS);
+
+	result = process_file(file);
+
+	fclose(file);
+
+	return (result);
 }
+

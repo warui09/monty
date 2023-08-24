@@ -1,23 +1,46 @@
 #include "monty.h"
 
-void interpret_file(FILE *fp)
+/**
+ * process_file - read the file and execute the commands
+ * @file: file to read
+ *
+ * Return: Always 0
+ *
+*/
+
+int process_file(FILE *file)
 {
-    char line[MAX_LINE_LENGTH];
-    char opcode[MAX_LINE_LENGTH];
-    int line_number = 0;
-    void (*opcode_func)(stack_t **, unsigned int);
+	char buffer[1024];
+	unsigned int line_number = 0;
+	stack_t *stack = NULL;
+	char *opcode;
+	instruction_t *current_instruction;
 
-    while (fgets(line, sizeof(line), fp))
-    {
-        line_number++;
-        parse_line(line);
+	while (fgets(buffer, sizeof(buffer), file))
+	{
+		line_number++;
+		opcode = strtok(buffer, " \t\n");
+		if (!opcode || opcode[0] == '#')
+			continue;
 
-        sscanf(line, "%s", opcode);
+		current_instruction = instructions;
+		while (current_instruction->opcode)
+		{
+			if (strcmp(current_instruction->opcode, opcode) == 0)
+			{
+				current_instruction->f(&stack, line_number);
+				break;
+			}
+			current_instruction++;
+		}
+		if (!current_instruction->opcode)
+		{
+			fprintf(stderr, "L%u: unknown instruction %s\n",
+					line_number, opcode);
+			return (EXIT_FAILURE);
+		}
+	}
 
-        opcode_func = get_opcode_func(opcode);
-        if (opcode_func)
-            opcode_func(NULL, line_number);
-        else
-            fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-    }
+	return (EXIT_SUCCESS);
 }
+

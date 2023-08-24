@@ -1,13 +1,16 @@
 #include "monty.h"
 
-/*
- * nop - The code does nothing (no function executed)
- * @stack: Head of the stack
- * @line_number: Line of error occurence
- * 
- * Return - Nothing
+/**
+ * nop - does nothing
+ * @stack: stack
+ * @line_number: line_number
+ *
+ * Return: nothing
+ *
 */
-void nop(stack_t **stack, unsigned int line_number){
-    (void) stack;
-    (void) line_number;
+
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
