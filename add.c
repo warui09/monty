@@ -8,18 +8,18 @@
  * Return - Nothing
 */
 void add(stack_t **stack, unsigned int line_number){
-    unsigned int length = 0, temp = 0;
+    stack_t *temp = *stack;
+	unsigned int a = 0, b = 0, length = 0;
 
 	length = count_stack(*stack);
 
 	if (length < 2)
-		fprintf(stderr, "L%d: Failed to add stack!\n", line_number);
+		fprintf(stderr, "L%d: Fail to add to stack!\n", line_number);
         exit(EXIT_FAILURE);
 
-	if (*stack)
-	{
-		temp = (*stack) -> n;
-		(*stack) -> n = (*stack) -> next -> n;
-		(*stack) -> next -> n = temp;
-	}
+	a = temp->n;
+	b = temp->next->n;
+	temp->next->n = a + b;
+	*stack = temp->next;
+	free(temp);
 }
