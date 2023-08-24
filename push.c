@@ -13,7 +13,7 @@ void push(stack_t **stack, unsigned int param){
 
     new_node = malloc(sizeof(stack_t));
     if (new_node == NULL)
-    fprintf(stderr, "L%d: push integer\n");
+    fprintf(stderr, "L%d: push integer\n", param);
     exit(EXIT_FAILURE);
 
 
