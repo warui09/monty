@@ -13,7 +13,7 @@ void push(stack_t **stack, unsigned int param){
 
     new_node = malloc(sizeof(stack_t));
     if (new_node == NULL)
-    fprintf(stderr, "L%d: Push to stack failed!\n");
+    fprintf(stderr, "L%d: push integer\n");
     exit(EXIT_FAILURE);
 
 
@@ -44,7 +44,7 @@ void push_queue(stack_t **stack, unsigned int param){
 
     new_node = malloc(sizeof(stack_t));
     if (new_node == NULL)
-    fprintf(stderr, "L%d: Add new node Fail!\n");
+    fprintf(stderr, "L%d: push integer\n");
     exit(EXIT_FAILURE);
 
 
