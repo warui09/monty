@@ -12,4 +12,4 @@ WFLAG7 = -g
 WFLAGS = ${WFLAG1} ${WFLAG2} ${WFLAG3} ${WFLAG4} ${WFLAG7}
 
 all:
-	${CC} ${WFLAGS} ${FILES.c} -o ${PROGRAM
+	${CC} ${WFLAGS} ${FILES.c} -o ${PROGRAM}
