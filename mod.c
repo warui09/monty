@@ -14,16 +14,19 @@ void mod(stack_t **stack, unsigned int line_number){
 
 	length = count_stack(*stack);
 
-	if (length < 2)
+	if (length < 2){
 		fprintf(stderr, "L%u can't mod, stack too short\n");
         exit(EXIT_FAILURE);
+	}
 
 	a = temp -> n;
 
-	if (a == 0)
+	if (a == 0){
 		fprintf(stderr, "L%u division by zero\n");
         exit(EXIT_FAILURE);
 
+	}
+	
 	b = temp -> next -> n;
 	temp -> next -> n = b % a;
 	*stack = temp -> next;
