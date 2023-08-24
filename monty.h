@@ -39,5 +39,6 @@ typedef struct instruction_s
 
 /*------------prototypes------------*/
 void interpret_file(FILE *fp);
+void parse_line(char *line);
 
 #endif /* MONTY_H */
