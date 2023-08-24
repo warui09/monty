@@ -44,7 +44,7 @@ void push_queue(stack_t **stack, unsigned int param){
 
     new_node = malloc(sizeof(stack_t));
     if (new_node == NULL)
-    fprintf(stderr, "L%u: push integer\n");
+    fprintf(stderr, "L%u: push integer\n", param);
     exit(EXIT_FAILURE);
 
 
