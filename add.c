@@ -8,7 +8,7 @@
  * Return - Nothing
 */
 void add(stack_t **stack, unsigned int line_number){
-    	unsigned int length = 0, temp = 0;
+    unsigned int length = 0, temp = 0;
 
 	length = count_stack(*stack);
 
