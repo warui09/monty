@@ -51,3 +51,5 @@ Module.symvers
 Mkfile.old
 dkms.conf
 monty
+monty_c
+monty_h
