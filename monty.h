@@ -31,6 +31,9 @@ typedef struct stack_s
         struct stack_s *next;
 } stack_t;
 
+/*Function prototype for count stack*/
+unsigned int count_stack(stack_t *stack);
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
